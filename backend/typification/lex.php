@@ -6,13 +6,15 @@ function lex_typification (){
 
     global $va_work_db_name;
     $dbname = $va_work_db_name;
+
+    $can_write = current_user_can('va_typification_tool_write');
     ?>
 
 <script type="text/javascript">
     var dbname = "<?php echo $dbname; ?>";
 	var scanUrl = "<?php echo home_url('/dokumente/scans/', 'https');?>";
 	var loadingUrl = "<?php echo VA_PLUGIN_URL . '/images/Loading.gif'; ?>";
-	var writeMode = <?php echo current_user_can('va_typification_tool_write')? "true" : "false";?>;
+	var writeMode = <?php echo $can_write ? "true" : "false";?>;
 </script>
 
 <style>
