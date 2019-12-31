@@ -1,0 +1,332 @@
+@font-face {
+	font-family: code2003;
+	src: url('Code200365k.ttf');
+}
+
+/* Updates to data base */
+
+.elementChanged {
+	background : #feddda;
+}
+
+.changesSent {
+	background : #feddda;
+}
+
+/* Legend focus */
+
+.focused > td {
+	font-weight : bold;
+}
+
+/* Rotate table headers */
+
+.matrix {
+	width: 100%;
+}
+
+.matrix table, .matrix tbody, .matrix tr, .matrix td, .matrix th:not(:first-child), .matrix div, .matrix span {
+	vertical-align : middle !important;
+	hyphens : none;
+}
+
+.matrix tbody {
+	height : 600px;
+	overflow-y : auto;
+	overflow-x : hidden;
+}
+
+.matrix tbody, .matrix thead {
+	display : block;
+}
+
+.matrix th {
+  height: 140px;
+  white-space: nowrap;
+}
+
+.matrix th:not(:first-child) > div {
+  transform: 
+    translate(12px, 59px)
+    rotate(315deg);
+}
+
+.matrix th:not(:first-child) div, .matrix td:not(:first-child) div {
+	width: 18px;
+}
+
+.matrix th:not(:first-child) div {
+	margin-right : 1px;
+}
+
+.matrix th:first-child {
+	vertical-align: bottom;
+	text-align: center;
+}
+
+.matrix th:first-child div, .matrix td:first-child div {
+	width : 200px;
+}
+
+.matrix td {
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	padding-right : 0px !important;
+}
+
+.matrix td div {
+	text-align : center;
+}
+
+.matrix th > div > span {
+  border-bottom: 1px solid #ccc;
+  padding: 1px 1px;
+}
+
+/** Chosen like button */
+	
+.chosen-like-button {
+	background-clip: padding-box;
+    background-color: #eeeeee;
+    background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+    background-repeat: repeat-x;
+    background-size: 100% 19px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+    color: #333;
+    cursor: default;
+    line-height: 13px;
+    margin: 3px 5px 3px 0;
+    max-width: 100%;
+    padding: 3px 20px 3px 5px;
+    position: relative;
+    float: left;
+}
+
+.chosen-like-button-del > a.selected {
+	background-position : -42px -10px;
+}
+
+.chosen-like-button-del > a {
+	background: rgba(0, 0, 0, 0) url("http://www.verba-alpina.gwi.uni-muenchen.de/wp-content/plugins/chosen/chosen/chosen-sprite.png") no-repeat scroll -42px 1px;
+    display: block;
+    font-size: 1px;
+    height: 12px;
+    position: absolute;
+    right: 3px;
+    top: 4px;
+    width: 12px;
+    cursor: pointer;
+    box-sizing: border-box;
+    line-height: 13px;
+}
+
+.eyecatcher {
+	display: inline-block;
+	/*transform: rotate(45deg);*/
+	float: right;
+	font-weight : bold;
+	border : 2pt solid;
+	padding: 0.5em;
+	background: #008000;
+	color: white;
+}
+
+.eyecatcher a:link {
+	color: white;
+}
+
+.eyecatcher a:visited {
+	color: white !important;
+}
+.eyecatcher a:active {
+	color: white;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice, #recordSummary {
+	font-family: arial unicode;
+}
+
+#translatorList_chosen .chosen-drop, #commTranslatorList_chosen .chosen-drop {
+	border-bottom: 0;
+	border-top: 1px solid #aaa;
+	top: auto;
+	bottom: 40px;
+}
+
+#translatorList_chosen .chosen-drop {
+	border-bottom: 0;
+	border-top: 1px solid #aaa;
+	top: auto;
+	bottom: 40px;
+}
+
+li.generalConcept {
+	color : grey;
+}
+
+li.specificConcept {
+	color : black;
+}
+
+.galleryContainer {
+	display: inline-block;
+	position: relative;
+}
+
+.galleryContainer p {
+	position: absolute;
+	background: #fc0;
+	top: 3px;
+	left: 3px;
+}
+
+.galleryContainer object {
+	position: absolute;
+}
+
+@font-face {
+    font-family: zrcola;
+    src: url(fonts/ZRColaRe.otf);
+}
+
+ol.footnotes p {
+	margin-bottom : 0;
+}
+
+.va-title {
+	position : relative;
+	font-family: 'Quicksand';
+}
+
+.va-title span.va-rel-link {
+	position : absolute;
+	top: -100px;
+}
+
+.va-marked {
+	background : yellow;
+}
+
+.entry-content a {text-decoration : underline;}
+.entry-content a:link {color: #3CB371}
+.entry-content a:visited {color: #3CB371}
+
+.bibl {
+	color: #5E99BD;
+/*	text-decoration: underline; */
+	cursor: pointer;
+}
+
+.vaabr, .sabr {
+	color: grey /*#3CB371*/;
+/*	text-decoration: underline;*/
+	cursor: pointer;
+}
+
+.clickable-row{
+	cursor: pointer;
+}
+
+.clickable-row:hover{
+	opacity: 0.95;
+}
+
+.recordBox {
+	width: 500px;
+}
+
+.corrTable {
+	margin-bottom: 50px;
+}
+
+.corrTable td,th {
+	padding: 5px;
+	vertical-align: middle;
+}
+
+.conceptSelect {
+	max-width: 600px;
+}
+
+.corrField {
+	margin-left: 5px;
+	margin-right: 5px;
+	border: solid black 1px;
+	border-radius: 5px;
+	padding: 5px;
+	font-size: 18px;
+	cursor: pointer;
+	font-family: arial unicode;
+}
+
+.corrFieldFixd {
+	cursor: not-allowed;
+}
+
+.corrFieldToken {
+	background: lightgrey;
+}
+
+#corrTokenTable {
+	border: 1px solid black;
+}
+
+#corrTokenTable td {
+	padding: 10px;
+	text-align: center;
+}
+
+#corrTokenTable td.activeTarget {
+	background: yellow;	
+}
+
+.corrFieldSep {
+	padding-left: 10px;
+	padding-right: 10px;
+	background: #eeeeee;
+}
+
+.corrFieldConcept {
+	background: #88edf9;
+}
+
+.corrFieldType {
+	background: #22dd5f;
+}
+
+.corrFieldConcept span, .corrFieldType span {
+	position: absolute;
+	top: -8px;
+	right: -4px;
+	background: #f7facf;
+	border: 1px solid black;
+	border-radius: 5px;
+	font-size: 60%;
+	padding: 1px;
+}
+
+.corrFieldConcept span:hover, .corrFieldType span:hover {
+	background: lightgrey;	
+}
+
+td.blocked {
+	background: #adadad;
+}
+
+.corrPlus {
+	background: #f7facf;
+	border-radius: 50%;
+	width: 1.4em;
+	line-height: 60%;
+	margin: auto;
+}
+
+.corrPlus:hover {
+	background: lightgrey;
+}
+
+#entryList a {
+	line-height: 1.3em;
+}

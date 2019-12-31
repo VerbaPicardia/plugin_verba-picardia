@@ -1,0 +1,131 @@
+#IM_map_div {
+	width: 100%;
+    position: absolute;
+    margin-top: 45px;
+    height: calc(100% - 45px);
+    top: 0px;
+    z-index: 0;
+}
+
+#IM_map_div .leaflet-top.leaflet-right > .leaflet-control-layers.leaflet-control{
+	margin-top: 37px;
+}
+
+#mainTable > tbody > tr > td {
+	vertical-align: top;
+}
+
+.qtip {
+	z-index: 120;
+	max-width: 350px;
+}
+
+.community {
+	float: right; 
+	color: black; 
+	border : 3px solid LightGray; 
+	margin-right: 10px; 
+	padding-right: 5px; 
+	padding-left: 5px
+}
+
+h1, h2 {
+	color: #2c879b;
+}
+
+.singleRecord svg path, .singleRecord svg rect {
+	fill: #2c879b;
+}
+
+#IM_filter_popup_div h1 {
+	font-size : 120% !important;
+}
+
+#IM_filter_popup_div h1, .IM_filter_popup_div h2 {
+	color: #2c879b;
+	margin-bottom: 1em !important;
+}
+
+a.encyLink, span.encyLink{
+	margin-left: 5pt;
+	margin-right: 5pt;
+	padding-left : 2pt;
+	padding-right : 2pt;
+	border-radius: 5pt;
+	border: 1pt solid;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 110%;
+	color: blue;
+}
+
+.singleRecord {
+	line-height:1.35;
+	font-family : arial unicode;
+	font-size : 200%
+}
+
+.va_type_table td:nth-child(2) {
+	font-family : arial unicode;
+	font-size: 120%;
+}
+
+.atlasSourceB {
+	color: #2c879b;
+	font-weight: bold;
+}
+
+.atlasSource {
+	color: #2c879b;
+}
+
+#commentWindow .entry-content {
+	font-family: "Open Sans",Helvetica,Arial,sans-serif;
+}
+
+.qtip-grey {
+	background-color: #fcfcfc;
+	border-color: black;
+	border-radius: 5px;
+	border-color: grey;
+	box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.15);
+}
+
+.VA_Map_Subhead {
+	font-size: 85%;
+	padding-left: 2px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color : #4b4b4b;
+}
+
+.sf-menu-toplevel > li > a{
+	margin-top : -1px;
+}
+
+.chosen-single {
+	margin-top : -1px;
+}
+
+.qtip-record span.originalRecord {
+	font-size : 180%;
+	font-family : arial unicode;
+	color: #2c879b;
+}
+
+.fullRecordInfo {
+	color: red;
+}
+
+.fullRecordInfo span {
+	font-size: 14px;
+	font-family: arial unicode;
+}
+
+.fullRecordInfo svg {
+	fill: red;
+}
+
+.originalRecord svg {
+	fill: #2c879b;
+}

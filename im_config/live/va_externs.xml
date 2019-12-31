@@ -1,0 +1,5 @@
+<externs dir="${basedir}/../plugin_verba-picardia">
+	<file name="im_config/externs.js" />
+	<file name="util/externs_frontend.js" />
+	<file name="util/externs_tools.js" />
+</externs>

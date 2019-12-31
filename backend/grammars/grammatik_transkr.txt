@@ -1,0 +1,63 @@
+start
+  = Belegliste
+
+Belegliste
+  = b : Beleg p : (" "?  Trennzeichen " "? Beleg)* 
+  {
+	var res = b; 
+	for (var i = 0; i < p.length; i++){
+		if(p[i][0]){
+			res.push(p[i][0]);
+		}
+		res.push(p[i][1]);
+		if(p[i][2]){
+			res.push(p[i][2]);
+		}
+		res = res.concat(p[i][3]);
+	}
+	return res;
+  }
+  
+Beleg
+  = t: Token p: (Leerzeichen Token)* {var res = t; for (var i = 0; i < p.length; i++) {res.push(p[i][0]); res = res.concat(p[i][1]);} return res;}
+
+Token
+ = z: Zeichen* {return z;}
+
+Zeichen
+  = b : Basiszeichen d : Diakritikum* {return b + d.join("");}
+  / "[" l: (Basiszeichen Diakritikum*)+ "]" d: Diakritikum* {var res = "["; for (var i = 0; i < l.length; i++) { res += l[i][0] + l[i][1].join(""); } return res + "]" + d.join("");}
+  / "'1"
+  / "'2"
+  / "'"
+  / ".1"
+
+Basiszeichen
+  = "aa" {return "aa";}
+  / "ee" {return "ee";}
+  / "ii" {return "ii";}
+  / "oo" {return "oo";}
+  / "uu" {return "uu";}
+  / c : [a-zA-Z] n : [1-8] {return c + n;}
+  / [a-zA-Z]
+
+Diakritikum
+  = Teildiakritikum
+  / "[" t : Teildiakritikum "]" {return "[" + t + "]";}
+  / "[" t1 : Teildiakritikum t2 : Teildiakritikum "]" {return "[" + t1 + t2 + "]";}
+
+Teildiakritikum
+  = s : Sonderzeichen n : [1-7] {return s + n;}
+  / Sonderzeichen
+  / "{" b : Basiszeichen d : Diakritikum* "}" {return "{" + b + d.join("") + "}";}
+
+Sonderzeichen
+  = [:?%()\!@/^_\-\\=~089|$"*>+&]
+  
+Leerzeichen
+  = " "
+  / "{ }"
+  
+Trennzeichen
+  = ","
+  / ";"

@@ -1,0 +1,14 @@
+<sources dir="${basedir}/../plugin_verba-picardia">
+	<file name="im_config/va_map.js" />
+	<file name="im_config/classes/record-window.js" />
+	<file name="im_config/classes/informant-window.js" />
+	<file name="im_config/classes/syntax-window.js" />
+	<file name="im_config/classes/concept-filter.js" />
+	<file name="im_config/classes/sql-filter.js" />
+	<file name="im_config/classes/add-center-filter.js" />
+	<file name="im_config/classes/type-gender-filter.js" />
+	<file name="im_config/classes/language-families.js" />
+	<file name="im_config/classes/hexagon-option.js" />
+	<file name="im_config/live/exports_va.js" />
+</sources>
+

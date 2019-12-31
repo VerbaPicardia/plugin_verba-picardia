@@ -1,0 +1,204 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-15 01:01+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: typisierung.php:117
+msgid "CHOOSE TOKEN"
+msgstr ""
+
+#: typisierung.php:232
+msgid ""
+"Assigns a type from a lingustic atlas to a token. Thereby the type is \\"
+"\"transformed\\\" into a VA type. Types marked in red are very similar to "
+"already exisitng types and should not be used, normally (e.g. for the VA "
+"type \\\"Alphütte\\\" there is a type \\\"Almhütte\\\" in some lingustic "
+"atlases)."
+msgstr ""
+
+#: typisierung.php:243 typisierung.php:245 typisierung.php:247
+msgid "Create new entry"
+msgstr ""
+
+#: typisierung.php:272
+msgid "This token is already typed by another user."
+msgstr ""
+
+#: typisierung.php:309 typisierung.php:335 typisierung.php:377
+#: typisierung.php:432
+msgid "No selection!"
+msgstr ""
+
+#: typisierung.php:324
+msgid ""
+"Not possible the following concepts are already assigned to identical "
+"tokens: "
+msgstr ""
+
+#: typisierung.php:326 typisierung.php:369 typisierung.php:419
+#: typisierung.php:424 typisierung.php:452 typisierung.php:457
+#: typisierung.php:635
+msgid "Not possible: "
+msgstr ""
+
+#: typisierung.php:478
+msgid "Lexical Types"
+msgstr ""
+
+#: typisierung.php:486
+msgid "Filter: "
+msgstr ""
+
+#: typisierung.php:488
+msgid "Choose Atlas"
+msgstr ""
+
+#: typisierung.php:500
+msgid "Non-typed tokens "
+msgstr ""
+
+#: typisierung.php:508 va.php:304 va.php:305
+msgid "Typification"
+msgstr ""
+
+#: typisierung.php:510
+msgid "Exisiting VA types"
+msgstr ""
+
+#: typisierung.php:535
+msgid "Assign type"
+msgstr ""
+
+#: typisierung.php:536
+msgid "Create new type"
+msgstr ""
+
+#: typisierung.php:537
+msgid "Adopt type from atlas"
+msgstr ""
+
+#: typisierung.php:547
+msgid "Typification not necessary"
+msgstr ""
+
+#: typisierung.php:549
+msgid "Token is"
+msgstr ""
+
+#: typisierung.php:559 typisierung.php:607
+msgid "Confirm"
+msgstr ""
+
+#: typisierung.php:568
+msgid "Adopt and assign non-VA type"
+msgstr ""
+
+#: va.php:298
+msgid "Transcription tool"
+msgstr ""
+
+#: va.php:301
+msgid "Data base"
+msgstr ""
+
+#: va.php:305
+msgid "Overview"
+msgstr ""
+
+#: va.php:306
+msgid "Lex. types"
+msgstr ""
+
+#: va.php:391
+msgid "Datenbank Version"
+msgstr ""
+
+#: va.php:392
+msgid "Auswahl der zu benutzenden Datenbank-Version"
+msgstr ""
+
+#: transkription/transkription.php:154
+msgid "No value!"
+msgstr ""
+
+#: transkription/transkription.php:174
+msgid "Informant number(s)"
+msgstr ""
+
+#: transkription/transkription.php:176
+msgid "Entry number"
+msgstr ""
+
+#: transkription/transkription.php:181
+msgid "Initial recording"
+msgstr ""
+
+#: transkription/transkription.php:182
+msgid "Correction"
+msgstr ""
+
+#: transkription/transkription.php:183
+msgid "Additional"
+msgstr ""
+
+#: transkription/transkription.php:184
+msgid "Problems"
+msgstr ""
+
+#: transkription/transkription.php:195
+msgid "Informant no."
+msgstr ""
+
+#: transkription/transkription.php:201
+msgid "Transcription"
+msgstr ""
+
+#: transkription/transkription.php:202
+msgid "Insert"
+msgstr ""
+
+#: transkription/transkription.php:204
+msgid "Problem"
+msgstr ""
+
+#: transkription/transkription.php:208
+msgid "record"
+msgstr ""
+
+#: transkription/transkription.php:209
+msgid "phonetic type"
+msgstr ""
+
+#: transkription/transkription.php:210
+msgid "morphological type"
+msgstr ""
+
+#: transkription/transkription.php:214
+msgid "Assigned concepts"
+msgstr ""
+
+#: transkription/transkription.php:215
+msgid "Choose Concept(s)"
+msgstr ""
+
+#: transkription/transkription.php:238
+msgid "Choose atlas"
+msgstr ""
+
+#: transkription/transkription.php:248
+msgid "Chose map"
+msgstr ""

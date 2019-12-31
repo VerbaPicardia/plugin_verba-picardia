@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE project [
+	<!ENTITY externs SYSTEM "../../../Interactive-Map_Plugin/build/externs.xml">
+	<!ENTITY sources SYSTEM "../../../Interactive-Map_Plugin/build/sources.xml">
+	<!ENTITY sources_gm SYSTEM "../../../Interactive-Map_Plugin/build/sources_gm.xml">
+	<!ENTITY sources_pixi SYSTEM "../../../Interactive-Map_Plugin/build/sources_pixi.xml">
+	<!ENTITY va_sources SYSTEM "va_sources.xml">
+	<!ENTITY va_externs SYSTEM "va_externs.xml">
+]>
+
+<project name="va" basedir="../../../Interactive-Map_Plugin/" default="compilePixi">
+
+  <taskdef name="jscomp" classname="com.google.javascript.jscomp.ant.CompileTask"
+           classpath="${basedir}/build/compiler.jar"/>
+
+  <target name="compileGM">
+
+	<jscomp compilationLevel="advanced" warning="verbose" debug="true" languageIn="ECMASCRIPT6_STRICT" output="compiled/interactive_map_compiled_gm.js">
+		
+		<!--<warning group="reportUnknownTypes" level="WARNING" />-->
+		
+		&externs;
+		&sources;
+		&sources_gm;
+		
+		<externs dir="${basedir}/build/externs">
+			<file name="pixi_stub.js"/>
+		</externs>
+		
+		&va_sources;
+		&va_externs;
+		
+    </jscomp>
+
+  </target>
+	
+  <target name="compilePixi">
+
+	<jscomp compilationLevel="simple" warning="verbose" debug="true" languageIn="ECMASCRIPT6_STRICT" output="compiled/interactive_map_compiled_pixi.js">
+		
+		<!--<warning group="reportUnknownTypes" level="WARNING" />-->
+		
+		&externs;
+		&sources;
+		&sources_pixi;
+		
+		<externs dir="${basedir}/build/externs">
+			<file name="gm_stub.js"/>
+		</externs>
+		
+		&va_sources;
+		&va_externs;
+		
+    </jscomp>
+
+  </target>
+
+</project>

@@ -1,0 +1,22 @@
+start
+  = Beleg
+  
+Beleg
+  = t: Token p: (Leerzeichen Token)* {var res = t; for (var i = 0; i < p.length; i++) {res.push(p[i][0]); res = res.concat(p[i][1]);} return res;}
+
+Token
+ = z: Zeichen* {return z;}
+
+Zeichen
+  = s : Schriftart b : Buchstabe {return s + b;}
+
+Schriftart
+  = [1-7]
+
+Buchstabe
+  = [a-zA-Záéíóúèìòùüäëöç0-9]
+  / "<" s1: Schriftart b: Buchstabe s2: Schriftart ">" {return "<" + s1 + b + s2 + ">";}
+  / "(" s1: Schriftart b: Buchstabe s2: Schriftart ")" {return "(" + s1 + b + s2 + ")";}
+  
+Leerzeichen
+	= "1 "

@@ -1,0 +1,21 @@
+start
+  = Beleg
+  
+Beleg
+  = "0"
+  / t: Token p: (Leerzeichen Token)* {var res = t; for (var i = 0; i < p.length; i++) {res.push(p[i][0]); res = res.concat(p[i][1]);} return res;}
+
+Token
+ = z: Zeichen* {return z;}
+
+Zeichen
+  = b : Basiszeichen d : Diakritikum* {return b + d.join("");}
+
+Basiszeichen
+  = [A-Z]
+
+Diakritikum
+  = [0-9+\-$.,;=:&$'%]
+  
+Leerzeichen
+	= " "
