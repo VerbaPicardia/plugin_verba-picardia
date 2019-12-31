@@ -1,15 +1,16 @@
-<?php 
+<?php
 function va_edit_base_type_page (){
-	
+
 	global $va_xxx;
-	$dbname = 'appi_va';
+	global $va_work_db_name;
+	$dbname = $va_work_db_name;
 	?>
-	
+
 	<script type="text/javascript">
 
 	var dbname = "<?php echo $dbname; ?>";
 	var currentSelect;
-	
+
 	jQuery(function (){
 		jQuery("#showOnlyNotRef").change(switchSelects);
 		jQuery("#showOnlyNotLang").change(switchSelects);
@@ -27,7 +28,7 @@ function va_edit_base_type_page (){
 		jQuery("select").val([]).chosen("destroy");
 
 		var name = "#baseTypeSelect";
-		
+
 		if(jQuery("#showOnlyNotRef").is(":checked")){
 			name += "R";
 		}
@@ -53,7 +54,7 @@ function va_edit_base_type_page (){
 				"id" : id,
 				"dbname" : dbname
 			};
-			
+
 			jQuery.post(ajaxurl, data, function (response){
 				try {
 					var data = JSON.parse(response);
@@ -71,7 +72,7 @@ function va_edit_base_type_page (){
 
 	function saveBaseType (){
 		var data = getBaseTypeData(currentSelect.val());
-		
+
 		if(data.type.Orth == ""){
 			alert("Das Feld \"Orth\" darf nicht leer sein!");
 			return;
@@ -93,7 +94,7 @@ function va_edit_base_type_page (){
 					alert(response);
 					return;
 				}
-				
+
 				var typeInfo = JSON.parse(response);
 				if(typeInfo.Refs){
 					jQuery("#baseTypeSelectR option[value=" + typeInfo.Id + "]").remove();
@@ -118,7 +119,7 @@ function va_edit_base_type_page (){
 					jQuery("#baseTypeSelectRL option[value=" + typeInfo.Id + "]").remove();
 					jQuery("#baseTypeSelectRL").trigger("chosen:updated");
 				}
-				
+
 				currentSelect.val("").trigger("chosen:updated");
 				closeBaseTypeDialog();
 			}
@@ -128,28 +129,28 @@ function va_edit_base_type_page (){
 		});
 	}
 	</script>
-	
+
 	<h1>Basistypen bearbeiten</h1>
-	
+
 	<br />
 	<br />
-	
+
 	<input type="checkbox" id="showOnlyNotRef" /> Nur Basistypen ohne Referenzen anzeigen
 	<input type="checkbox" id="showOnlyNotLang" /> Nur Basistypen ohne Sprachzuordnung anzeigen
-	
+
 	<br />
 	<br />
-	
+
 	<?php
-	
+
 	echo im_table_select('Basistypen', 'Id_Basistyp', array('Orth'), 'baseTypeSelect', array('class_name' => 'baseselect'));
-	echo im_table_select('Basistypen', 'Id_Basistyp', array('Orth'), 'baseTypeSelectR', 
+	echo im_table_select('Basistypen', 'Id_Basistyp', array('Orth'), 'baseTypeSelectR',
 			array('filter' => 'NOT EXISTS (SELECT * FROM VTBL_Basistyp_Lemma v WHERE v.Id_Basistyp = Basistypen.Id_Basistyp)', 'class_name' => 'baseselect'));
 	echo im_table_select('Basistypen', 'Id_Basistyp', array('Orth'), 'baseTypeSelectL',
 			array('filter' => "Sprache IS NULL", 'class_name' => 'baseselect'));
 	echo im_table_select('Basistypen', 'Id_Basistyp', array('Orth'), 'baseTypeSelectRL',
 			array('filter' => "NOT EXISTS (SELECT * FROM VTBL_Basistyp_Lemma v WHERE v.Id_Basistyp = Basistypen.Id_Basistyp) AND Sprache is NULL", 'class_name' => 'baseselect'));
-	
-	
+
+
 	echo createBaseTypeOverlay($va_xxx, $dbname, true);
 }

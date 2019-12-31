@@ -14,10 +14,10 @@
 define('VA_PLUGIN_URL', plugins_url('', __FILE__));
 define('VA_PLUGIN_PATH', plugin_dir_path(__FILE__));
 
-define('VA_DOMAIN', 'verba-picardia');
 define('VA_TEXT_DOMAIN', 'verba-alpina');
 
 define('VA_CONTENT_MENU_NAME', 'Verba');
+define('VA_CONTENT_MENU_HOOK', 'verba');
 define('VA_CONTENT_MENU_SLUG', 'va_content');
 define('VA_TOOLS_MENU_NAME', 'Verba Tools');
 define('VA_TOOLS_MENU_SLUG', 'va_tools');
@@ -307,7 +307,7 @@ if($login_data !== false) {
     }
 
     function _va_page_hook($menu_slug) {
-        return VA_DOMAIN . '_page_' . $menu_slug;
+        return VA_CONTENT_MENU_HOOK . '_page_' . $menu_slug;
     }
 
     function va_get_language() {
@@ -351,9 +351,12 @@ function va_setup_db_access() {
     $dbpassw = $login_data [1];
     $dbhost = $login_data [2];
 
+    global $va_work_db_name;
+    $va_work_db_name = _va_work_db_name();
+
     global $va_xxx;
     // Va_xxx data base, used for all queries that have to be placed in the current working version
-    $va_xxx = new wpdb($dbuser, $dbpassw, _va_work_db_name(), $dbhost);
+    $va_xxx = new wpdb($dbuser, $dbpassw, $va_work_db_name, $dbhost);
     $va_xxx->show_errors();
 
     global $va_current_db_name;
@@ -363,7 +366,7 @@ function va_setup_db_access() {
     $va_next_db_name = va_increase_version($max_version);
 
     if (is_user_logged_in()) {
-        $va_current_db_name = _va_work_db_name();
+        $va_current_db_name = $va_work_db_name;
     } else {
         $va_current_db_name = _va_stable_db_name($max_version);
     }
