@@ -63,7 +63,7 @@ if($login_data !== false) {
         global $va_xxx;
         global $vadb;
 
-        va_setup_db_access();
+        _va_setup_db_access();
 
         if (class_exists(IM_INITIALIZER_CLASS_NAME)) {
             if (isset($_POST ['action']) && $_POST ['action'] == 'im_a'
@@ -78,8 +78,8 @@ if($login_data !== false) {
         }
 
         load_plugin_textdomain(VA_TEXT_DOMAIN, false, dirname(plugin_basename(__FILE__)) . '/languages');
-        $lang = va_get_language();
-        $Ue = va_get_translations($lang);
+        $lang = _va_get_language();
+        $Ue = _va_get_translations($lang);
 
         _include_libraries();
         _include_features();
@@ -95,7 +95,7 @@ if($login_data !== false) {
 
     function _include_features() {
         if (class_exists(TRANSCRIPTION_TOOL_CLASS_NAME)) {
-            va_init_transcription_tool();
+            _va_init_transcription_tool();
         }
         include_once ('backend/concept_tree.php');
         include_once ('backend/typification/main.php');
@@ -310,7 +310,7 @@ if($login_data !== false) {
         return VA_CONTENT_MENU_HOOK . '_page_' . $menu_slug;
     }
 
-    function va_get_language() {
+    function _va_get_language() {
         switch (get_locale()) {
             case 'fr_FR' :
                 return 'F';
@@ -330,7 +330,7 @@ if($login_data !== false) {
         }
     }
 
-    function va_get_translations($lang) {
+    function _va_get_translations($lang) {
         global $va_xxx;
 
         $transl = 'Begriff_' . $lang;
@@ -345,7 +345,7 @@ if($login_data !== false) {
     }
 }
 
-function va_setup_db_access() {
+function _va_setup_db_access() {
     global $login_data;
     $dbuser = $login_data [0];
     $dbpassw = $login_data [1];
@@ -363,7 +363,7 @@ function va_setup_db_access() {
     global $va_next_db_name;
 
     $max_version = $va_xxx->get_var('SELECT MAX(Nummer) FROM Versionen');
-    $va_next_db_name = va_increase_version($max_version);
+    $va_next_db_name = _va_increase_version($max_version);
 
     if (is_user_logged_in()) {
         $va_current_db_name = $va_work_db_name;
@@ -386,12 +386,8 @@ function va_setup_db_access() {
     $vadb->show_errors();
 }
 
-function va_increase_version($old) {
-    if (substr($old, - 1) == '2') {
-        return (intval(substr($old, 0, - 1)) + 1) . '1';
-    } else {
-        return substr($old, 0, - 1) . '2';
-    }
+function _va_increase_version($old) {
+    return strval(intval($old) + 1);
 }
 
 function _va_work_db_name() {
@@ -406,7 +402,7 @@ function _va_version_number_from_db_name($db_name) {
     return substr($db_name, strlen(VA_DB_PREFIX));
 }
 
-function va_init_transcription_tool() {
+function _va_init_transcription_tool() {
     global $va_xxx;
 
     $mappings = [ ];
@@ -440,36 +436,5 @@ function va_init_transcription_tool() {
 
     TranscriptionTool::add_special_val_button('vacat', 'vacat', __('Adds a marker to the data base that there are no attestations for this informant.', VA_TEXT_DOMAIN));
     TranscriptionTool::init('/dokumente/scans/', $va_xxx, $va_xxx->get_col('SELECT DISTINCT Erhebung FROM Stimuli JOIN Bibliographie ON Abkuerzung = Erhebung WHERE VA_Beta'), $va_xxx->get_results("SELECT Id_Konzept AS id, IF(Name_D != '', Name_D, Beschreibung_D) as text FROM Konzepte ORDER BY Text ASC", ARRAY_A), $mappings);
-}
-
-function va_produce_external_map_link($atlas, $map, $num, $informant) {
-    $attributes = ' style="text-decoration: underline;" target="_BLANK" ';
-
-    if ($atlas == 'AIS') {
-        if ($num == '1') {
-            $link = 'http://www3.pd.istc.cnr.it/navigais-web/?map=' . $map . '&point=' . $informant;
-        } else {
-            $link = 'http://www3.pd.istc.cnr.it/navigais-web/?map=' . $map;
-        }
-        return 'G. Tisato - NavigAIS - <a' . $attributes . 'href="' . $link . '">' . $link . '</a>';
-    }
-
-    if ($atlas == 'ALF') {
-        if (is_numeric($map)) {
-            $number = str_pad($map, 4, '0', STR_PAD_LEFT);
-        } else if (in_array(substr($map, - 1), [
-                'A',
-                'B'
-        ])) {
-            $number = str_pad(substr($map, 0, - 1), 4, '0', STR_PAD_LEFT) . substr($map, - 1);
-        } else {
-            return null; // No maps for supplements
-        }
-        $link = 'http://lig-tdcge.imag.fr/cartodialect3/visualiseur?numCarte=' . $number;
-
-        return '<a' . $attributes . 'href="' . $link . '">Link</a>';
-    }
-
-    return null;
 }
 ?>
