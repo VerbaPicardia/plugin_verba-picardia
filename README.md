@@ -4,10 +4,19 @@ This WordPress plugin is used on [Verba Picardia](https://anr-appi.univ-lille.fr
 
 It is heavily inspired by [Verba Alpina Plugin](https://github.com/VerbaAlpina/Verba-Alpina-Plugin).
 
+## Requirements
+
+In additional to a standard AMP stack (Apache-Mysql/MariaDB-PHP), some tweaks are needed on the DBMS. The following
+configuration file provides them and may be added to Mysql/MariaDB's `conf.d` directory:
+
+    [mysqld]
+    lower_case_table_names=1
+    group_concat_max_len = 1000000
+
 ## Installation
 
 1. Install WordPress.
-2. Create the VA working database (`va_xxx`) and fill it with expected tables and data (TODO: minimal set of data).
+2. Create the VA working database (`va_xxx`) and fill it with expected tables and data (TODO: minimal set of data including among others stored procedures).
 3. Install the [Interactive Map plugin](https://github.com/VerbaAlpina/Interactive-Map_Plugin).
 4. Install the [Transcription Tool plugin](https://github.com/VerbaAlpina/TranscriptionTool-Plugin).
 5. Install this plugin.
