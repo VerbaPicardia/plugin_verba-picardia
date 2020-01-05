@@ -11,6 +11,7 @@ It is heavily inspired by [Verba Alpina Plugin](https://github.com/VerbaAlpina/V
 3. Install the [Interactive Map plugin](https://github.com/VerbaAlpina/Interactive-Map_Plugin).
 4. Install the [Transcription Tool plugin](https://github.com/VerbaAlpina/TranscriptionTool-Plugin).
 5. Install this plugin.
+6. Install a compatible theme (you may use [this](https://github.com/anr-appi/theme_verba-picardia) or [this](https://github.com/VerbaAlpina/Verba-Alpina-Theme) as a starting point).
 
 ## Configuration
 
